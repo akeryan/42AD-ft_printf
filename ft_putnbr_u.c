@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_u.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akeryan <akeryan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 06:13:42 by akeryan           #+#    #+#             */
-/*   Updated: 2021/12/04 07:52:30 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/12/21 21:47:57 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putnbr_u(unsigned int nb)
+int	ft_putnbr_u(int fd, unsigned int nb)
 {
 	const char	*base = "0123456789";
 
 	if (nb < 10)
-		return (ft_putchar(base[nb]));
-	return (ft_putnbr_u(nb / 10) + ft_putnbr_u(nb % 10));
+		return (ft_putchar(fd, base[nb]));
+	return (ft_putnbr_u(fd, nb / 10) + ft_putnbr_u(fd, nb % 10));
 }
